@@ -1,0 +1,47 @@
+<!-- Traer los productos del carrito-->
+<h2 class="mb-4">Shopping Cart</h2>
+
+<!-- Loop through cart items -->
+<div class="row g-4">
+  <div class="col-md-4" *ngFor="let item of cartItems">
+    <div class="card h-100">
+      <div class="card-body">
+
+         <!-- Image Section -->
+         <img [src]="item.image" class="card-img-top img-fluid" alt="{{item.title}}" style="object-fit: contain; max-height: 200px;">
+
+        <!-- Item Title -->
+        <h5 class="card-title text-truncate" style="min-height: text-wrap" >{{item.title}}</h5>
+        
+        <!-- Border Below Description -->
+        <hr class="my-2">
+
+        <!-- Item Price -->
+        <p class="card-subtitle mb-2 text-muted">Precio: ${{item.price}}</p>
+        
+        <!-- Delete Button -->
+        <button (click)="deleteItem(item)" class="btn btn-danger w-100">Delete <i class="bi bi-trash"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Buttons in the Same Row -->
+<div 
+  class="d-flex justify-content-between align-items-center p-3" 
+  style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; border-top: 1px solid #4F5E75;"
+>
+  <!-- Left Group: Clear Cart and Continue Shopping -->
+  <div class="d-flex gap-2">
+    <a [routerLink]="['/home']">
+      <button class="btn btn-primary">Continue Shopping</button>
+    </a>
+    
+    <button (click)="clearCart()" class="btn btn-secondary">Clear Cart</button>
+  </div>
+
+  <!-- Right: Go to Checkout -->
+  <a [routerLink]="['/checkout']">
+    <button class="btn btn-success">Go to Checkout</button>
+  </a>
+</div>

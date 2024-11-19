@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* your custom styles */
+html,
+body {
+    height: 100%;
+    margin: 20px 40px;
+}
+
+.card-body hr {
+    border-top: 1px solid #4F5E75;
+    /* blue border */
+}
+
+.search-bar {
+    max-width: 300px;
+    /* Adjust the width as needed */
+}
+
+.card-title {
+margin:12px 0px;
+}
