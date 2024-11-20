@@ -20,8 +20,10 @@ export class CartService {
   }
 
   deleteItem(item: any) {
-    this.cartItems.splice(0, 1);
-  }
+    const index = this.cartItems.indexOf(item); // Find the index of the item
+    if (index > -1) { // Ensure the item exists in the array
+      this.cartItems.splice(index, 1); // Remove the specific item
+  }}
 
   clearCart() {
     this.cartItems = []; // Vacía el carrito

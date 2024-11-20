@@ -1,35 +1,36 @@
 <!-- Traer los productos del carrito-->
 <h2 class="mb-4">Checkout</h2>
-<div *ngFor="let item of cartItems" class="d-flex align-items-center my-4" style="gap: 20px;">
-  <!-- Image Section -->
-  <img [src]="item.image" class="img-fluid" alt="{{item.title}}" 
-    style="object-fit: contain; max-height: 60px; flex-shrink: 0;">
+<div style="padding-bottom: calc(var(--fixed-bar-height, 60px) + 30px);">
+  <div *ngFor="let item of cartItems" class="d-flex align-items-center" style="gap: 20px;">
+    <!-- Image Section -->
+    <img [src]="item.image" class="img-fluid" alt="{{item.title}}"
+      style="object-fit: contain; max-height: 60px; width: 60px; flex-shrink: 0;">
 
-  <!-- Text Section -->
-  <div class="flex-grow-1">
-    <!-- Item Title -->
-    <h5 class="card-title text-truncate" style="margin-bottom: 5px;">{{item.title}}</h5>
-    <!-- Item Price -->
-    <p class="card-subtitle mb-2 text-muted">Precio: {{item.price | currency}}</p>
-    <hr class="my-2">
+    <!-- Text Section -->
+    <div class="flex-grow-1">
+      <!-- Item Title -->
+      <h5 class="card-title text-truncate" style="margin-bottom: 5px;">{{item.title}}</h5>
+      <!-- Item Price -->
+      <p class="card-subtitle mb-2 text-muted">Precio: {{item.price | currency}}</p>
+      <hr class="my-2">
+    </div>
   </div>
+  <h3 class="my-2">Total: {{total | currency}}</h3> <!-- Mostrar el total aquí -->
 </div>
-
-<h3>Total: {{total | currency}}</h3> <!-- Mostrar el total aquí -->
 
 <!-- Boton para ir al home y uno para el checkout -->
-<div class="d-flex justify-content-between align-items-center p-3" 
-style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; border-top: 1px solid #4F5E75;">
-<div class="d-flex gap-2">
-  <a [routerLink]="['/home']">
-    <button class="btn btn-primary">Continue shopping</button>
-  </a>
-  <a [routerLink]="['/cart']">
-    <button class="btn btn-secondary">Update cart</button>
-  </a>
-</div>
+<div class="d-flex justify-content-between align-items-center p-3 bg-white"
+  style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; border-top: 1px solid #4F5E75;">
+  <div class="d-flex gap-2">
+    <a [routerLink]="['']">
+      <button class="btn btn-primary">Continue shopping</button>
+    </a>
+    <a [routerLink]="['/cart']">
+      <button class="btn btn-secondary">Update cart</button>
+    </a>
+  </div>
   <!-- Right: Go to Checkout -->
   <a [routerLink]="['/checkout']">
-    <button class="btn btn-success">Go to Pay</button>
+    <button class="btn btn-success">Confirm purchase</button>
   </a>
 </div>

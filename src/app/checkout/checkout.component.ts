@@ -23,6 +23,8 @@ export class CheckoutComponent {
     this.calculateTotal();
   }
   calculateTotal() {
-    this.total = this.cartItems.reduce((sum: any, item: { price: any; }) => {sum + item.price}, 0);
+    this.total = this.cartItems.reduce((sum: number, item: { price: number }) => {
+      return sum + item.price;
+    }, 0);
   }
 }
